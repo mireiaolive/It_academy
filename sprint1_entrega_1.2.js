@@ -15,7 +15,13 @@ class Persona {
         this.nom = nom;
     }
 
-    dirNom(nom) {
-        console.log(this.nom);
+    dirNom() {
+        return this.nom;
     }
 }
+
+let home = new Persona("Jonathan");
+console.log(home.dirNom());
+
+//Nivell 3
+//Exercici 1
