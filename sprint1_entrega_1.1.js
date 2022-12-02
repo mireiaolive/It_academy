@@ -16,7 +16,7 @@ console.log(userInfo);
 
 //Exercici 2
 function userNameSurname() {
-    return "Mireia Olivé";
+    return "Mireia Olive";
 }
 
 var user = `The name of the user is: ${userNameSurname()}`;
