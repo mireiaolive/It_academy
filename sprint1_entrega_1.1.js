@@ -15,37 +15,31 @@ var userInfo = `${name} ${surName}`;
 console.log(userInfo);
 
 //Exercici 2
-function userNameSurname(name, surname) {
-    const user = `${name} ${surname}`;
-    return user;
+function userNameSurname() {
+    return "Mireia Olivé";
 }
 
-console.log(userNameSurname("Mireia", "Olive"));
+var user = `The name of the user is: ${userNameSurname()}`;
+console.log(user);
 
 //Nivell 3
 //Exercici 1
-let f1 = () => "one";
-let f2 = () => "two";
-let f3 = () => "three";
-let f4 = () => "four";
-let f5 = () => "five";
-let f6 = () => "six";
-let f7 = () => "seven";
-let f8 = () => "eight";
-let f9 = () => "nine";
-let f10 = () => "ten";
+const f1 = () => {
+    var arr = [];
+    for (var i = 0; i < 10; i++) {
+        arr.push(() => {
+            for (var j = 0; j < 10; j++) {
+                console.log(j);
+            }
+        });
+    }
+    return arr;
+};
 
-var functions = [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10];
-var arr = [];
-for (var i = 0; i < functions.length; i++) {
-    var fn = functions[i];
-    arr.push(fn);
-}
-console.log(arr[0]("a string"));
+console.log(f1());
 
 //Exercici 2
-var result = (function () {
-    var name = "Mireia Olive";
+var result = (function (name) {
     return name;
-})();
+})("Result is Mireia");
 console.log(result);
