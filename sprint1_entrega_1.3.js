@@ -8,7 +8,7 @@ const wasSuccess = true;
 function asynFunction() {
     return new Promise((resolve, reject) => {
         if (wasSuccess) {
-            resolve("eventual finalizació");
+            resolve("eventual finalizacio");
         } else {
             reject("falla o error");
         }
@@ -74,4 +74,27 @@ const getEmployee = (id) => {
 
 getEmployee(1)
     .then((res) => console.log(res))
+    .catch((err) => console.log(err));
+
+//Exercici 2
+//Crea una altra arrow function getSalary() similar a l'anterior
+//que rebi com a paràmetre un objecte employee i retorni el seu salari.
+
+const getSalary = (employee) => {
+    const salary = salaries.find((salary) => salary.id == employee.id);
+    const promise = new Promise((resolve, reject) => {
+        if (!salary) {
+            reject(`Aquest ${salary} no existeix`);
+        } else {
+            resolve(salary);
+        }
+    });
+    return promise;
+};
+
+getEmployee(1).then((employee) =>
+    getSalary(employee).then((res) => console.log(res))
+);
+getEmployee(6)
+    .then((employee) => getSalary(employee).then((res) => console.log(res)))
     .catch((err) => console.log(err));
