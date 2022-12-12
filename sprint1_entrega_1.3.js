@@ -21,4 +21,11 @@ console.log(asynFunction());
 //Crea una arrow function que rebi un paràmetre i una funció callback i li passi a la funció un missatge
 //o un altre (que s'imprimirà per consola) en funció del paràmetre rebut.
 
-arrowFunction = (param, callback) => {};
+setTimeout(() => {
+    console.log("Aquest missatge es veu després de tres segons");
+}, 3000);
+
+//Nivell 2
+//Exercici 1
+//Donats els objectes employees i salaries, crea una arrow function getEmployee()
+//que retorni una Promise efectuant la cerca en l'objecte pel seu id.
