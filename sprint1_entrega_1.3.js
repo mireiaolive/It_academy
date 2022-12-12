@@ -103,3 +103,7 @@ getEmployee(1)
 //Nivell 3
 //Exercici 1
 //Fixa un element catch a la invocació del nivell anterior que capturi qualsevol error i el mostri per la consola.
+
+getEmployee(8)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err));
