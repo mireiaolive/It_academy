@@ -72,6 +72,10 @@ const getEmployee = (id) => {
     return promise;
 };
 
+getEmployee(1)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err));
+
 //Exercici 2
 //Crea una altra arrow function getSalary() similar a l'anterior
 //que rebi com a paràmetre un objecte employee i retorni el seu salari.
@@ -92,13 +96,11 @@ const getSalary = (employee) => {
 //Invoca la primera funció getEmployee() i després getSalary() niant l'execució de les dues promises
 //de manera que es retorni per la consola el nom de l'empleat/da i el seu salari.
 
-getEmployee(1).then((employee) =>
-    getSalary(employee).then((res) => console.log(res))
+getEmployee(3).then((employee) =>
+    getSalary(employee).then((salary) =>
+        console.log(`${employee.name}: ${salary.salary}`)
+    )
 );
-
-getEmployee(1)
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
 
 //Nivell 3
 //Exercici 1
