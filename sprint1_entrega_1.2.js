@@ -1,8 +1,7 @@
 //Nivell 1
 //Exercici 1
-((name, surname) => {
-    console.log(name + surname);
-})("Jonathan ", "Schmidt");
+//Mostra per la consola el resultat d'una arrow function autoinvocable que sumi dos nombres.
+console.log(((name, surname) => name + surname)("Jonathan ", "Schmidt"));
 
 //Nivell 2
 //Exercici 1
@@ -10,18 +9,21 @@ const func = (param1) => ({ Name: param1 });
 console.log(func("Jonathan"));
 
 //Exercici 2
+//Crea una classe "Persona" que rebi un paràmetre 'nom' en ser instanciada.
+//La classe inclourà un mètode dirNom que imprimeixi per consola el paràmetre 'nom'.
+//Invoca el mètode dirNom des de fora de la classe.
 class Persona {
     constructor(nom) {
         this.nom = nom;
     }
 
     dirNom() {
-        return this.nom;
+        console.log(this.nom);
     }
 }
 
 let home = new Persona("Jonathan");
-console.log(home.dirNom());
+home.dirNom();
 
 //Nivell 3
 //Exercici 1
