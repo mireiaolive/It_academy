@@ -27,32 +27,25 @@ home.dirNom();
 
 //Nivell 3
 //Exercici 1
-//Escriu una function creadora d'objectes que faci instàncies d'una classe abstracta.
-//Invoca-la amb diferents definicions.
-//Les classes abstractes no es poden instanciar
-
-class AbstractClass {
-    constructor(name, age, language) {
-        if (new.target == AbstractClass) {
-            throw new Error("this class cannot be instantiated");
-        }
-        this.name = name;
-        this.age = age;
-        this.language = language;
+function AbstractClass() {
+    this.name = "name";
+    //Les classes abstractes no es poden instanciar
+    if (this.constructor === Employee) {
+        throw new Error("this class cannot be instantiated");
     }
 }
 
-const createObject = (name, age, language) => {
-    return Object.create(AbstractClass.prototype, {
-        name: { value: name },
-        age: { value: age },
-        language: { value: language },
-    });
+//Funció classe abstracta
+AbstractClass.prototype.display = function () {
+    return "Employee name is: " + this.name;
 };
-
-let objOne = createObject("Marta", 20, "german");
-//Error: this class cannot be instantiated
-//let objTwo = new AbstractClass("Tomas", 50, "french");
-
-console.log(objOne);
-//console.log(objTwo);
+//Subclasse
+function createObject(fullName) {
+    this.name = fullName;
+}
+//Creat objecte de la subclasse extenent la classe abstracta
+createObject.prototype = Object.create(AbstractClass.prototype);
+var objOne = new createObject("Jonathan Schmidt Ott");
+var objTwo = new createObject("Michael Jackson");
+console.log(objOne.display());
+console.log(objTwo.display());
