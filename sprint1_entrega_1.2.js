@@ -30,7 +30,7 @@ home.dirNom();
 function AbstractClass() {
     this.name = "name";
     //Les classes abstractes no es poden instanciar
-    if (this.constructor === Employee) {
+    if (this.constructor === AbstractClass) {
         throw new Error("this class cannot be instantiated");
     }
 }
