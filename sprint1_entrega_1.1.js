@@ -36,10 +36,10 @@ const f1 = () => {
     return arr;
 };
 
-console.log(f1());
+f1().forEach((fn) => fn());
 
 //Exercici 2
 var result = (function (name) {
+    console.log(name);
     return name;
 })("Result is Mireia");
-console.log(result);
