@@ -3,11 +3,9 @@
 //Crea una funció que retorni una Promise que invoqui la funció resolve() o reject() que rep.
 //Invoca-la passant-li les dues funcions de manera que imprimeixin un missatge diferent depenent de si la Promise es resol o no.
 
-const wasSuccess = true;
-
-function asynFunction() {
+function asynFunction(wasSuccess) {
     return new Promise((resolve, reject) => {
-        if (wasSuccess) {
+        if (wasSuccess == true) {
             resolve("eventual finalizacio");
         } else {
             reject("falla o error");
@@ -15,15 +13,21 @@ function asynFunction() {
     });
 }
 
-console.log(asynFunction());
+console.log(asynFunction(true));
+console.log(asynFunction(false));
 
 //Exercici 2
 //Crea una arrow function que rebi un paràmetre i una funció callback i li passi a la funció un missatge
 //o un altre (que s'imprimirà per consola) en funció del paràmetre rebut.
 
-setTimeout(() => {
-    console.log("Aquest missatge es veu després de tres segons");
-}, 3000);
+let saludar = (nom) => console.log(`Bon dia ${nom}!`);
+
+const infoClient = (info, callback) => {
+    const client = `${info}`;
+    callback(info);
+};
+
+infoClient("Mr.Lucky", saludar);
 
 //Nivell 2
 //Exercici 1

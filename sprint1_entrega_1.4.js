@@ -33,3 +33,19 @@ let salaries = [
         salary: 2000,
     },
 ];
+
+employeeInfo = async (id) => {
+    try {
+        const name = await getEmployee(employees.name);
+        console.log("nom deempleat/da");
+        const salary = await getSalary(salaries.salary);
+        console.log(`${name}: ${salary}`);
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+employeeInfo(1);
+employeeInfo(2);
+employeeInfo(3);
+employeeInfo(4);
