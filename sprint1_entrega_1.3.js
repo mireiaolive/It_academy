@@ -110,6 +110,7 @@ getEmployee(8)
     .then((res) => console.log(res))
     .catch((err) => console.log(err));
 
+//Export per Entrega 1.4: Async / Await
 module.exports = {
     getEmployee: getEmployee,
     getSalary: getSalary,
