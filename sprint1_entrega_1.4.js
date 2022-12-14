@@ -4,48 +4,36 @@
 //l'empleat/da i el seu salari, usant les funcions getEmployee() i getSalary() que has definit a la tasca anterior.
 const { getEmployee, getSalary } = require("./sprint1_entrega_1.3.js");
 
-let employees = [
-    {
-        id: 1,
-        name: "Linux Torvalds",
-    },
-    {
-        id: 2,
-        name: "Bill Gates",
-    },
-    {
-        id: 3,
-        name: "Jeff Bezos",
-    },
-];
+/* const employeeInfo = (id) => {
+    getEmployee(id)
+        .then((employee) =>
+            getSalary(employee).then((salary) => {
+                console.log(
+                    `Employee info: ${employee.name}: $${salary.salary}`
+                );
+            })
+        )
+        .catch((err) => console.log(err.message));
+};
 
-let salaries = [
-    {
-        id: 1,
-        salary: 4000,
-    },
-    {
-        id: 2,
-        salary: 1000,
-    },
-    {
-        id: 3,
-        salary: 2000,
-    },
-];
+employeeInfo(1); */
 
-employeeInfo = async (id) => {
+const employeeInfo = async (id) => {
     try {
-        const name = await getEmployee(employees.name);
-        console.log("nom deempleat/da");
-        const salary = await getSalary(salaries.salary);
-        console.log(`${name}: ${salary}`);
+        const employee = await getEmployee(id);
+        const salary = await getSalary(employee);
+        if (employee.name) {
+            console.log(`employee info: ${employee.name}: ${salary.salary}`);
+        } else {
+            console.log("this person does not exist");
+        }
     } catch (err) {
-        console.log(err);
+        console.log(err.message);
     }
 };
 
 employeeInfo(1);
-employeeInfo(2);
-employeeInfo(3);
-employeeInfo(4);
+
+//Exercici 2
+//Crea una nova funció asíncrona que cridi a una altra que retorni una Promise
+// que efectuï la seva funció resolve() després de 2 segons de la seva invocació.

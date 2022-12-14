@@ -13,8 +13,8 @@ function asynFunction(wasSuccess) {
     });
 }
 
-console.log(asynFunction(true));
-console.log(asynFunction(false));
+//console.log(asynFunction(true));
+//console.log(asynFunction(false));
 
 //Exercici 2
 //Crea una arrow function que rebi un paràmetre i una funció callback i li passi a la funció un missatge
@@ -27,7 +27,7 @@ const infoClient = (info, callback) => {
     callback(info);
 };
 
-infoClient("Mr.Lucky", saludar);
+//infoClient("Mr.Lucky", saludar);
 
 //Nivell 2
 //Exercici 1
@@ -76,9 +76,9 @@ const getEmployee = (id) => {
     return promise;
 };
 
-getEmployee(1)
+/* getEmployee(1)
     .then((res) => console.log(res))
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err)); */
 
 //Exercici 2
 //Crea una altra arrow function getSalary() similar a l'anterior
@@ -100,19 +100,19 @@ const getSalary = (employee) => {
 //Invoca la primera funció getEmployee() i després getSalary() niant l'execució de les dues promises
 //de manera que es retorni per la consola el nom de l'empleat/da i el seu salari.
 
-getEmployee(3).then((employee) =>
+/* getEmployee(3).then((employee) =>
     getSalary(employee).then((salary) =>
         console.log(`${employee.name}: ${salary.salary}`)
     )
-);
+); */
 
 //Nivell 3
 //Exercici 1
 //Fixa un element catch a la invocació del nivell anterior que capturi qualsevol error i el mostri per la consola.
 
-getEmployee(8)
+/* getEmployee(8)
     .then((res) => console.log(res))
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err)); */
 
 //Export per Entrega 1.4: Async / Await
 module.exports = {
