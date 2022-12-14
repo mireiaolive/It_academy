@@ -9,7 +9,7 @@ const { getEmployee, getSalary } = require("./sprint1_entrega_1.3.js");
         .then((employee) =>
             getSalary(employee).then((salary) => {
                 console.log(
-                    `Employee info: ${employee.name}: $${salary.salary}`
+                    `employee info: ${employee.name}: $${salary.salary}`
                 );
             })
         )
