@@ -56,7 +56,19 @@ newFunction();
 //Exercici 1
 //Crea una funció que retorni el doble del número que li passa com a paràmetre després de 2 segons.
 //Crea una altra funció que rebi tres números i calculi la suma dels seus dobles fent servir la funció anterior.
-const returnDouble = (num) => {};
+const returnDouble = (num) => {
+    return new Promise((resolve, reject) => {
+        var double = num * 2;
+        if (typeof double === "number") {
+            setTimeout(() => resolve("Done!"), 2000);
+        } else {
+            reject("Please use a valid number");
+        }
+        return double;
+    });
+};
+
+console.log(returnDouble(2));
 
 //Nivell 3
 //Exercici 1
