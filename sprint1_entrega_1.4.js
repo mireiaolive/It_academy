@@ -23,7 +23,7 @@ const employeeInfo = async (id) => {
         const employee = await getEmployee(id);
         const salary = await getSalary(employee);
         if (employee.name) {
-            console.log(`employee info: ${employee.name}: ${salary.salary}`);
+            console.log(`${employee.name}: ${salary.salary}`);
         } else {
             console.log("this person does not exist");
         }
@@ -36,4 +36,18 @@ employeeInfo(1);
 
 //Exercici 2
 //Crea una nova funció asíncrona que cridi a una altra que retorni una Promise
-// que efectuï la seva funció resolve() després de 2 segons de la seva invocació.
+//que efectuï la seva funció resolve() després de 2 segons de la seva invocació.
+const resolveAfter2 = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("resolved after 2 seconds");
+        }, 2000);
+    });
+};
+
+const newFunction = async () => {
+    const result = await resolveAfter2();
+    console.log(result);
+};
+
+newFunction();
