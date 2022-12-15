@@ -36,7 +36,7 @@ let saludar = (name) => {
     console.log(name);
 };
 
-infoClient("Moritz", saludar);
+//infoClient("Moritz", saludar);
 
 //Nivell 2
 //Exercici 1
