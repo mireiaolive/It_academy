@@ -20,20 +20,23 @@ function asynFunction(wasSuccess) {
 //Crea una arrow function que rebi un paràmetre i una funció callback i li passi a la funció un missatge
 //o un altre (que s'imprimirà per consola) en funció del paràmetre rebut.
 
-const infoClient = (info, callback) => {
-    const client = `${info}`;
-    callback(info);
-};
-
-let saludar = (info) => {
+//higher function
+const infoClient = (name, callback) => {
+    const day = `Bon dia ${name}!`;
+    const night = `Bona nit ${name}!`;
     if (Math.random() < 0.5) {
-        console.log(`Bon dia ${info}!`);
+        console.log(callback(day));
     } else {
-        console.log(`Bona nit ${info}!`);
+        console.log(callback(night));
     }
 };
 
-//infoClient("Mr.Lucky", saludar);
+//callback
+let saludar = (name) => {
+    console.log(name);
+};
+
+infoClient("Moritz", saludar);
 
 //Nivell 2
 //Exercici 1

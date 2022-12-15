@@ -60,7 +60,7 @@ const returnDouble = (num) => {
     return new Promise((resolve, reject) => {
         var double = num * 2;
         if (typeof double === "number") {
-            setTimeout(() => resolve("Done!"), 2000);
+            resolve("Done!");
         } else {
             reject("Please use a valid number");
         }
@@ -69,6 +69,16 @@ const returnDouble = (num) => {
 };
 
 console.log(returnDouble(2));
+calculateNumber(2);
+
+const calculateNumber = async () => {
+    try {
+        const result = await returnDouble(num);
+        console.log(result);
+    } catch (err) {
+        console.log(err);
+    }
+};
 
 //Nivell 3
 //Exercici 1
