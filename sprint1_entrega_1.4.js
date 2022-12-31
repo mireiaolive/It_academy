@@ -56,7 +56,7 @@ newFunction();
 //Exercici 1
 //Crea una funció que retorni el doble del número que li passa com a paràmetre després de 2 segons.
 const returnDouble = (num) => {
-    if (num === undefined) {
+    if (num === null) {
         num = 0;
     } else {
         return new Promise((resolve, reject) => {
@@ -94,7 +94,7 @@ getSuma(9, 8, 7)
     .then((res) => console.log(res))
     .catch((err) => console.log(err));
 
-getSuma("6", 5, 4)
+getSuma("6", 5, 500)
     .then((res) => console.log(res))
     .catch((err) => console.log(err));
 
