@@ -101,3 +101,12 @@ getSuma("6", 5, 500)
 //Nivell 3
 //Exercici 1
 //Força i captura tants errors com puguis dels nivells 1 i 2.
+employeeInfo(6);
+employeeInfo();
+employeeInfo("hello");
+employeeInfo(20);
+employeeInfo(150);
+
+getSuma()
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err));
