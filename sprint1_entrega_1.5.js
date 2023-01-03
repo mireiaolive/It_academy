@@ -36,3 +36,19 @@ const compresFile = () => {
 };
 
 compresFile();
+
+//Nivell 2
+//Exercici 1
+//Crea una funció que imprimeixi recursivament un missatge per la consola amb demores d'un segon.
+const recursivePrint = (num) => {
+    setTimeout(() => {
+        if (num === 0);
+        console.log("hello i'm printing..");
+        recursivePrint(num - 1);
+    }, 1000);
+};
+
+recursivePrint(5);
+//Exercici 2
+//Crea una funció que llisti per la consola el contingut del directori d'usuari/ària de l'ordinador
+//utilizant Node Child Processes.
