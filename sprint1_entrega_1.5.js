@@ -69,6 +69,26 @@ wc.stdout.on("data", (data) => {
 //Nivell 3
 //Exercici 1
 //Crea una funció que creï dos fitxers codificats en hexadecimal i en base64 respectivament, a partir del fitxer del nivell 1.
+const createCodFiles = () => {
+    fs.readFile("./assets/file.txt", "utf-8", (err, data) => {
+        if (err) {
+            throw err;
+        } else {
+            const buf = Buffer.from(data);
+            fs.writeFile("file-hex.txt", buf.toString("hex"), (err) => {
+                if (err) throw err;
+                else console.log("hex done");
+            });
+            fs.writeFile("file-64.txt", buf.toString("base64"), (err) => {
+                if (err) throw err;
+                else console.log("base64 done");
+            });
+        }
+    });
+};
+
+createCodFiles();
+
 //Crea una funció que guardi els fitxers del punt anterior, ara encriptats amb l'algoritme aes-192-cbc, i esborri els fitxers inicials.
 //Crea una altra funció que desencripti i descodifiqui els fitxers de l'apartat anterior tornant a generar una còpia de l'inicial.
 //Inclou un README amb instruccions per a l'execució de cada part.
