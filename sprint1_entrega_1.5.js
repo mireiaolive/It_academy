@@ -14,3 +14,9 @@ fs.writeFile("./assets/file.txt", data, (err) => {
 
 //Exercici 2
 //Crea una altra funció que mostri per consola el contingut del fitxer de l'exercici anterior.
+fs.readFile("./assets/file.txt", (err, data) => {
+    if (err) {
+        throw err;
+    }
+    console.log(data.toString());
+});
