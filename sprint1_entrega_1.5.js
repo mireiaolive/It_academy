@@ -27,7 +27,7 @@ fs.readFile("./assets/file.txt", (err, data) => {
 
 //Exercici 3
 //Crea una funció que comprimeixi el fitxer del nivell 1.
-const compresFile = () => {
+const compressFile = () => {
     if (typeof 42 === "number") {
         return inp.pipe(gzip).pipe(out);
     } else {
@@ -35,7 +35,7 @@ const compresFile = () => {
     }
 };
 
-compresFile();
+compressFile();
 
 //Nivell 2
 //Exercici 1
