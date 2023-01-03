@@ -42,9 +42,12 @@ compresFile();
 //Crea una funció que imprimeixi recursivament un missatge per la consola amb demores d'un segon.
 const recursivePrint = (num) => {
     setTimeout(() => {
-        if (num === 0);
-        console.log("hello i'm printing..");
-        recursivePrint(num - 1);
+        if (num === 0) {
+            console.log("last printing..");
+        } else {
+            console.log("hello i'm printing..");
+            recursivePrint(num - 1);
+        }
     }, 1000);
 };
 
@@ -62,3 +65,10 @@ find.stdout.pipe(wc.stdin);
 wc.stdout.on("data", (data) => {
     console.log(`Number of files ${data}`);
 });
+
+//Nivell 3
+//Exercici 1
+//Crea una funció que creï dos fitxers codificats en hexadecimal i en base64 respectivament, a partir del fitxer del nivell 1.
+//Crea una funció que guardi els fitxers del punt anterior, ara encriptats amb l'algoritme aes-192-cbc, i esborri els fitxers inicials.
+//Crea una altra funció que desencripti i descodifiqui els fitxers de l'apartat anterior tornant a generar una còpia de l'inicial.
+//Inclou un README amb instruccions per a l'execució de cada part.
