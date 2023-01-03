@@ -48,7 +48,17 @@ const recursivePrint = (num) => {
     }, 1000);
 };
 
-recursivePrint(5);
+recursivePrint(3);
 //Exercici 2
 //Crea una funció que llisti per la consola el contingut del directori d'usuari/ària de l'ordinador
 //utilizant Node Child Processes.
+const { spawn } = require("child_process");
+
+const find = spawn("find", [".", "-type", "f"]);
+const wc = spawn("wc", ["-l"]);
+
+find.stdout.pipe(wc.stdin);
+
+wc.stdout.on("data", (data) => {
+    console.log(`Number of files ${data}`);
+});
