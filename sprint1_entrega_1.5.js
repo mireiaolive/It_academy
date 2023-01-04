@@ -151,7 +151,7 @@ const decipherData = (m) => {
         Securitykey,
         initVector
     );
-    let decryptedData = decipher.update(encryptedData, "hex", "utf-8");
+    let decryptedData = decipher.update(m, "hex", "utf-8");
     decryptedData += decipher.final("utf8");
     console.log("Decrypted message: " + decryptedData);
 };
