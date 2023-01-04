@@ -1,7 +1,7 @@
 Nivell 3
-Crypto és una biblioteca integrada a Node.js. No requereix instal·lació i configuració abans de fer-lo servir a les seves aplicacions Node.js. El mòdul criptogràfic maneja un algorisme que realitza el xifratge i desxifrat de dades.
 
 Exercici 1.1
+Els buffers es poden utilitzar per agafar una cadena o un tros de dades i fer la codificació del resultat. Passem data a Buffer.from() assignant el resultat a una variable, que amb el mètode toString(), mostrarà la memòria intermèdia de dades com una cadena hexadecimal (o base64).
 
 Exercici 1.2
 Primer, s'importa el mòdul criptogràfic const crypto = requerir ("cripto").
