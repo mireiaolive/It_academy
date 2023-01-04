@@ -6,13 +6,14 @@ const zlib = require("zlib");
 const gzip = zlib.createGzip();
 const inp = fs.createReadStream("./assets/file.txt");
 const out = fs.createWriteStream("./assets/file.txt.gz");
+const crypto = require("crypto");
 
 const data = "This is the new content of file.txt.";
 fs.writeFile("./assets/file.txt", data, (err) => {
     if (err) {
         throw err;
     } else {
-        console.log("Data has been written.");
+        //console.log("Data has been written.");
     }
 });
 
@@ -35,7 +36,7 @@ const compressFile = () => {
     }
 };
 
-compressFile();
+//compressFile();
 
 //Nivell 2
 //Exercici 1
@@ -51,7 +52,8 @@ const recursivePrint = (num) => {
     }, 1000);
 };
 
-recursivePrint(3);
+//recursivePrint(3);
+
 //Exercici 2
 //Crea una funció que llisti per la consola el contingut del directori d'usuari/ària de l'ordinador
 //utilizant Node Child Processes.
@@ -63,12 +65,13 @@ const wc = spawn("wc", ["-l"]);
 find.stdout.pipe(wc.stdin);
 
 wc.stdout.on("data", (data) => {
-    console.log(`Number of files ${data}`);
+    //console.log(`Number of files ${data}`);
 });
 
 //Nivell 3
 //Exercici 1
-//Crea una funció que creï dos fitxers codificats en hexadecimal i en base64 respectivament, a partir del fitxer del nivell 1.
+//Crea una funció que creï dos fitxers codificats en hexadecimal i en base64 respectivament,
+//a partir del fitxer del nivell 1.
 const createCodFiles = () => {
     fs.readFile("./assets/file.txt", "utf-8", (err, data) => {
         if (err) {
@@ -87,8 +90,52 @@ const createCodFiles = () => {
     });
 };
 
-createCodFiles();
+//createCodFiles();
 
-//Crea una funció que guardi els fitxers del punt anterior, ara encriptats amb l'algoritme aes-192-cbc, i esborri els fitxers inicials.
-//Crea una altra funció que desencripti i descodifiqui els fitxers de l'apartat anterior tornant a generar una còpia de l'inicial.
-//Inclou un README amb instruccions per a l'execució de cada part.
+//Crea una funció que guardi els fitxers del punt anterior,
+//ara encriptats amb l'algoritme aes-192-cbc i esborri els fitxers inicials.
+const algorithm = "aes-192-cbc";
+const initVector = crypto.randomBytes(16);
+const message = "This is a secret message";
+const Securitykey = crypto.scryptSync(message, "salt", 24);
+const cipher = crypto.createCipheriv(algorithm, Securitykey, initVector);
+
+let encryptedData = cipher.update(message, "utf-8", "hex");
+encryptedData += cipher.final("hex");
+console.log("Encrypted message: " + encryptedData);
+
+const createCryptFiles = () => {
+    fs.readFile("file-hex.txt", "utf-8", (err, data) => {
+        if (err) throw err;
+        else {
+            fs.writeFile("file-hex-crypt.txt", encryptedData(data), (err) => {
+                if (err) throw err;
+                else {
+                    console.log("file-hex-crypt.txt done");
+                }
+                fs.unlink("file-hex.txt", (err) => {
+                    if (err) throw err;
+                    else console.log("file-hex.txt gone");
+                });
+            });
+        }
+    });
+
+    fs.readFile("file-64.txt", "utf-8", (err, data) => {
+        if (err) throw err;
+        else {
+            fs.writeFile("file-64-crypt.txt", encryptedData(data), (err) => {
+                if (err) throw err;
+                else {
+                    console.log("file-64-crypt.txt done");
+                }
+                fs.unlink("file-64.txt", (err) => {
+                    if (err) throw err;
+                    else console.log("file-64.txt gone");
+                });
+            });
+        }
+    });
+};
+
+createCryptFiles();
