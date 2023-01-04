@@ -69,7 +69,7 @@ wc.stdout.on("data", (data) => {
 });
 
 //Nivell 3
-//Exercici 1
+//Exercici 1.1
 //Crea una funció que creï dos fitxers codificats en hexadecimal i en base64 respectivament,
 //a partir del fitxer del nivell 1.
 const createCodFiles = () => {
@@ -92,6 +92,7 @@ const createCodFiles = () => {
 
 //createCodFiles();
 
+//Exercici 1.2
 //Crea una funció que guardi els fitxers del punt anterior,
 //ara encriptats amb l'algoritme aes-192-cbc i esborri els fitxers inicials.
 const algorithm = "aes-192-cbc";
@@ -143,6 +144,7 @@ const createCryptFiles = () => {
 
 //createCryptFiles();
 
+//Exercici 1.3
 //Crea una altra funció que desencripti i descodifiqui els fitxers
 //de l'apartat anterior tornant a generar una còpia de l'inicial.
 const decipherData = (m) => {
