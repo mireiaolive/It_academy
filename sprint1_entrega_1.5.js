@@ -146,6 +146,7 @@ const createCryptFiles = () => {
 //Crea una altra funció que desencripti i descodifiqui els fitxers
 //de l'apartat anterior tornant a generar una còpia de l'inicial.
 const decipherData = (m) => {
+    const Securitykey = crypto.scryptSync(message, "salt", 24);
     const decipher = crypto.createDecipheriv(
         algorithm,
         Securitykey,
@@ -154,4 +155,26 @@ const decipherData = (m) => {
     let decryptedData = decipher.update(m, "hex", "utf-8");
     decryptedData += decipher.final("utf8");
     console.log("Decrypted message: " + decryptedData);
+    return decryptedData;
 };
+
+const createDecryptFiles = () => {
+    fs.readFile("file-hex-crypt.txt", "utf-8", (_err, cipherData) => {
+        const data = decipherData(cipherData);
+        // let buff = Buffer.from(data);
+        fs.writeFile("file-hex-copy.txt", data, (err) => {
+            if (err) throw err;
+            else console.log("file-hex-copy.txt done");
+        });
+    });
+    fs.readFile("file-64-crypt.txt", "utf-8", (_err, cipherData) => {
+        const data = decipherData(cipherData);
+        // let buff = Buffer.from(data);
+        fs.writeFile("file-64-copy.txt", data, (err) => {
+            if (err) throw err;
+            else console.log("file-64-copy.txt done");
+        });
+    });
+};
+
+createDecryptFiles();
