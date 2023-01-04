@@ -1,15 +1,15 @@
 const fs = require("fs");
 const zlib = require("zlib");
 const gzip = zlib.createGzip();
-const inp = fs.createReadStream("./assets/file.txt");
-const out = fs.createWriteStream("./assets/file.txt.gz");
+const inp = fs.createReadStream("file.txt");
+const out = fs.createWriteStream("file.txt.gz");
 const crypto = require("crypto");
 
 //Nivell 1
 //Exercici 1
 //Crea una funció que, en executar-la, escrigui una frase en un fitxer.
 const data = "This is the new content of file.txt.";
-fs.writeFile("./assets/file.txt", data, (err) => {
+fs.writeFile("file.txt", data, (err) => {
     if (err) {
         throw err;
     } else {
@@ -19,7 +19,7 @@ fs.writeFile("./assets/file.txt", data, (err) => {
 
 //Exercici 2
 //Crea una altra funció que mostri per consola el contingut del fitxer de l'exercici anterior.
-fs.readFile("./assets/file.txt", (err, data) => {
+fs.readFile("file.txt", (err, data) => {
     if (err) {
         throw err;
     }
@@ -73,7 +73,7 @@ wc.stdout.on("data", (data) => {
 //Crea una funció que creï dos fitxers codificats en hexadecimal i en base64 respectivament,
 //a partir del fitxer del nivell 1.
 const createCodFiles = () => {
-    fs.readFile("./assets/file.txt", "utf-8", (err, data) => {
+    fs.readFile("file.txt", "utf-8", (err, data) => {
         if (err) {
             throw err;
         } else {
