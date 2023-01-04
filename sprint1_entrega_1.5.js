@@ -97,7 +97,7 @@ const createCodFiles = () => {
 const algorithm = "aes-192-cbc";
 const initVector = crypto.randomBytes(16);
 const message = "This is a secret message";
-const cryptoData = (m) => {
+const cipherData = (m) => {
     const Securitykey = crypto.scryptSync(message, "salt", 24);
     const cipher = crypto.createCipheriv(algorithm, Securitykey, initVector);
 
@@ -111,7 +111,7 @@ const createCryptFiles = () => {
     fs.readFile("file-hex.txt", "utf-8", (err, data) => {
         if (err) throw err;
         else {
-            fs.writeFile("file-hex-crypt.txt", cryptoData(data), (err) => {
+            fs.writeFile("file-hex-crypt.txt", cipherData(data), (err) => {
                 if (err) throw err;
                 else {
                     console.log("file-hex-crypt.txt done");
@@ -127,7 +127,7 @@ const createCryptFiles = () => {
     fs.readFile("file-64.txt", "utf-8", (err, data) => {
         if (err) throw err;
         else {
-            fs.writeFile("file-64-crypt.txt", cryptoData(data), (err) => {
+            fs.writeFile("file-64-crypt.txt", cipherData(data), (err) => {
                 if (err) throw err;
                 else {
                     console.log("file-64-crypt.txt done");
@@ -142,3 +142,16 @@ const createCryptFiles = () => {
 };
 
 //createCryptFiles();
+
+//Crea una altra funció que desencripti i descodifiqui els fitxers
+//de l'apartat anterior tornant a generar una còpia de l'inicial.
+const decipherData = (m) => {
+    const decipher = crypto.createDecipheriv(
+        algorithm,
+        Securitykey,
+        initVector
+    );
+    let decryptedData = decipher.update(encryptedData, "hex", "utf-8");
+    decryptedData += decipher.final("utf8");
+    console.log("Decrypted message: " + decryptedData);
+};
