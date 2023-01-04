@@ -97,18 +97,21 @@ const createCodFiles = () => {
 const algorithm = "aes-192-cbc";
 const initVector = crypto.randomBytes(16);
 const message = "This is a secret message";
-const Securitykey = crypto.scryptSync(message, "salt", 24);
-const cipher = crypto.createCipheriv(algorithm, Securitykey, initVector);
+const cryptoData = (m) => {
+    const Securitykey = crypto.scryptSync(message, "salt", 24);
+    const cipher = crypto.createCipheriv(algorithm, Securitykey, initVector);
 
-let encryptedData = cipher.update(message, "utf-8", "hex");
-encryptedData += cipher.final("hex");
-console.log("Encrypted message: " + encryptedData);
+    let encryptedData = cipher.update(m, "utf-8", "hex");
+    encryptedData += cipher.final("hex");
+    console.log("Encrypted message: " + encryptedData);
+    return encryptedData;
+};
 
 const createCryptFiles = () => {
     fs.readFile("file-hex.txt", "utf-8", (err, data) => {
         if (err) throw err;
         else {
-            fs.writeFile("file-hex-crypt.txt", encryptedData(data), (err) => {
+            fs.writeFile("file-hex-crypt.txt", cryptoData(data), (err) => {
                 if (err) throw err;
                 else {
                     console.log("file-hex-crypt.txt done");
@@ -124,7 +127,7 @@ const createCryptFiles = () => {
     fs.readFile("file-64.txt", "utf-8", (err, data) => {
         if (err) throw err;
         else {
-            fs.writeFile("file-64-crypt.txt", encryptedData(data), (err) => {
+            fs.writeFile("file-64-crypt.txt", cryptoData(data), (err) => {
                 if (err) throw err;
                 else {
                     console.log("file-64-crypt.txt done");
