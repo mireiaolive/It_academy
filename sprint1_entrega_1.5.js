@@ -166,6 +166,7 @@ const createDecryptFiles = () => {
             else console.log("file-hex-copy.txt done");
         });
     });
+
     fs.readFile("file-64-crypt.txt", "utf-8", (_err, cipherData) => {
         const data = decipherData(cipherData);
         fs.writeFile("file-64-copy.txt", data, (err) => {
