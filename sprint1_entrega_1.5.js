@@ -161,7 +161,6 @@ const decipherData = (m) => {
 const createDecryptFiles = () => {
     fs.readFile("file-hex-crypt.txt", "utf-8", (_err, cipherData) => {
         const data = decipherData(cipherData);
-        // let buff = Buffer.from(data);
         fs.writeFile("file-hex-copy.txt", data, (err) => {
             if (err) throw err;
             else console.log("file-hex-copy.txt done");
@@ -169,7 +168,6 @@ const createDecryptFiles = () => {
     });
     fs.readFile("file-64-crypt.txt", "utf-8", (_err, cipherData) => {
         const data = decipherData(cipherData);
-        // let buff = Buffer.from(data);
         fs.writeFile("file-64-copy.txt", data, (err) => {
             if (err) throw err;
             else console.log("file-64-copy.txt done");
@@ -177,4 +175,4 @@ const createDecryptFiles = () => {
     });
 };
 
-createDecryptFiles();
+//createDecryptFiles();
