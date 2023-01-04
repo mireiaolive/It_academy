@@ -1,6 +1,3 @@
-//Nivell 1
-//Exercici 1
-//Crea una funció que, en executar-la, escrigui una frase en un fitxer.
 const fs = require("fs");
 const zlib = require("zlib");
 const gzip = zlib.createGzip();
@@ -8,6 +5,9 @@ const inp = fs.createReadStream("./assets/file.txt");
 const out = fs.createWriteStream("./assets/file.txt.gz");
 const crypto = require("crypto");
 
+//Nivell 1
+//Exercici 1
+//Crea una funció que, en executar-la, escrigui una frase en un fitxer.
 const data = "This is the new content of file.txt.";
 fs.writeFile("./assets/file.txt", data, (err) => {
     if (err) {
@@ -103,7 +103,7 @@ const cryptoData = (m) => {
 
     let encryptedData = cipher.update(m, "utf-8", "hex");
     encryptedData += cipher.final("hex");
-    console.log("Encrypted message: " + encryptedData);
+    //console.log("Encrypted message: " + encryptedData);
     return encryptedData;
 };
 
@@ -141,4 +141,4 @@ const createCryptFiles = () => {
     });
 };
 
-createCryptFiles();
+//createCryptFiles();
