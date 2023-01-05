@@ -1,4 +1,6 @@
 Nivell 3
+Output:
+$ node sprint1_entrega_1.5.js
 
 Exercici 1.1
 Els buffers es poden utilitzar per agafar una cadena o un tros de dades i fer la codificació del resultat. Passem data a Buffer.from() assignant el resultat a una variable, que amb el mètode toString(), mostrarà la memòria intermèdia de dades com una cadena hexadecimal (o base64).
