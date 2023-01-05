@@ -1,0 +1,22 @@
+{
+    "name": "it_academy",
+    "version": "1.0.0",
+    "description": "node sprint1_entrega_1.5.js",
+    "main": "sprint1_entrega_1.1.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mireiaolive/it_academy.git"
+    },
+    "author": "Mireia",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/mireiaolive/it_academy/issues"
+    },
+    "homepage": "https://github.com/mireiaolive/it_academy#readme",
+    "dependencies": {
+        "jest": "^29.3.1"
+    }
+}
