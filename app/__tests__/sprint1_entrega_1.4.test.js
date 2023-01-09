@@ -1,4 +1,4 @@
-const { newFunction, returnDouble } = require("../sprint1_entrega_1.4");
+const { newFunction } = require("../sprint1_entrega_1.4");
 
 jest.useFakeTimers();
 jest.spyOn(global, "setTimeout");
