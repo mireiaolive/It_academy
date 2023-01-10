@@ -20,6 +20,19 @@ test("Should receive a param and callback to print a message", (done) => {
     );
 }); */
 
+test("Should return an employee after search its id", () => {
+    jest.mock(
+        "../data.json",
+        () => ({
+            settings: "someSetting",
+        }),
+        { virtual: true }
+    );
+    return getEmployee(1).then((employee) =>
+        expect(employee).toEqual({ id: 1, name: "Linux Torvalds" })
+    );
+});
+
 /* test("Should return an employee salary object", () => {
     return getSalary(3).then((salary) =>
         expect(salary).toEqual({
@@ -28,3 +41,19 @@ test("Should receive a param and callback to print a message", (done) => {
         })
     );
 }); */
+
+test("Should return an employee salary object", () => {
+    jest.mock(
+        "../data.json",
+        () => ({
+            settings: "someSetting",
+        }),
+        { virtual: true }
+    );
+    return getSalary(3).then((salary) =>
+        expect(salary).toEqual({
+            id: 3,
+            salary: 2000,
+        })
+    );
+});
