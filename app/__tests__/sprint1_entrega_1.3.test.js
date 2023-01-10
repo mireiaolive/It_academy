@@ -5,8 +5,6 @@ const {
     getSalary,
 } = require("../sprint1_entrega_1.3");
 
-jest.mock("./request");
-
 test("Should receive a param and callback to print a message", (done) => {
     infoClient("Moritz", saludar);
     done();
