@@ -66,8 +66,17 @@ const recursivePrint = (num) => {
 //Crea una funció que llisti per la consola el contingut del directori d'usuari/ària de l'ordinador
 //utilizant Node Child Processes.
 const { exec } = require("child_process");
+// Allocating os module
+const os = require("os");
+// Printing os.homedir() value
+const homedir = os.homedir();
 
-exec("ls -lh", (err, stdout, stderr) => {
+const defaults = {
+    cwd: homedir,
+    env: process.env,
+};
+
+exec("ls -lh", defaults, (err, stdout, stderr) => {
     if (err) {
         console.err(`error: ${err.message}`);
         return;
@@ -191,4 +200,4 @@ const createDecryptFiles = () => {
     });
 };
 
-createDecryptFiles();
+//createDecryptFiles();
