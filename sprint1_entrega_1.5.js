@@ -68,7 +68,7 @@ const recursivePrint = (num) => {
 const { exec } = require("child_process");
 // Allocating os module
 const os = require("os");
-// Printing os.homedir() value
+// os.homedir() value
 const homedir = os.homedir();
 
 const defaults = {
