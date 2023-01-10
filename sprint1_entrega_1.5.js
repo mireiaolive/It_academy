@@ -103,7 +103,7 @@ const createCodFiles = () => {
     });
 };
 
-//createCodFiles();
+createCodFiles();
 
 //Exercici 1.2
 //Crea una funció que guardi els fitxers del punt anterior,
@@ -191,4 +191,4 @@ const createDecryptFiles = () => {
     });
 };
 
-//createDecryptFiles();
+createDecryptFiles();
