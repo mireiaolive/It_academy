@@ -65,15 +65,20 @@ const recursivePrint = (num) => {
 //Exercici 2
 //Crea una funció que llisti per la consola el contingut del directori d'usuari/ària de l'ordinador
 //utilizant Node Child Processes.
-const { spawn } = require("child_process");
+const { exec } = require("child_process");
 
-const find = spawn("find", [".", "-type", "f"]);
-const wc = spawn("wc", ["-l"]);
+exec("ls -lh", (err, stdout, stderr) => {
+    if (err) {
+        console.err(`error: ${err.message}`);
+        return;
+    }
 
-find.stdout.pipe(wc.stdin);
+    if (stderr) {
+        console.err(`stderr: ${stderr}`);
+        return;
+    }
 
-wc.stdout.on("data", (data) => {
-    //console.log(`Number of files ${data}`);
+    console.log(`stdout:\n${stdout}`);
 });
 
 //Nivell 3
